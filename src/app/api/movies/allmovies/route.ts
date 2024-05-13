@@ -50,13 +50,12 @@ export async function GET(request: NextRequest) {
         };
       }),
     );
-    const movieListResponse: MovieList = {
+
+    const MovieResponse: MovieList = {
       res: res,
       movies: moviesWithEmbedAndTrailerUrls,
     };
-    return NextResponse.json({
-      movieListResponse,
-    });
+    return NextResponse.json(MovieResponse);
   } catch (error) {
     console.error(error);
     return { error: "Failed to fetch and process data." };

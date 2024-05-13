@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   },
   description: "Watch movies and Seasons with Night Watch for free!",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 export default function RootLayout({

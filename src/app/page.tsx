@@ -1,13 +1,11 @@
 import React from "react";
 import HomeSearch from "@/components/home-search";
 import Card from "@/components/card";
+import { MovieList, Movie } from "@/types/movie-types";
 
 export default async function Home() {
-  const req = await fetch(
-    "http://localhost:8000/api/movies/allmovies?page=2&category=top_rated",
-    {
-      cache: "no-store",
-    },
+  const req: MovieList = await fetch(
+    "http://localhost:8000/api/movies/allmovies?page=1&category=top_rated",
   ).then((req) => req.json());
   return (
     <>
@@ -30,7 +28,7 @@ export default async function Home() {
           Movies
         </h1>
         <div className=" flex justify-center items-center flex-wrap gap-5">
-          {req.movies?.map((movie: any) => {
+          {req.movies.map((movie: Movie) => {
             return <Card key={movie.id} Data={movie} />;
           })}
         </div>
