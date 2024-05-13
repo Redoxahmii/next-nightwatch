@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import clsx from "clsx";
 import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
@@ -32,7 +31,6 @@ export const metadata: Metadata = {
     apple: "/favicon.ico",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,10 +40,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <main>
-            <Nav />
-            {children}
-          </main>
+          <Nav />
+          {children}
         </Providers>
       </body>
     </html>

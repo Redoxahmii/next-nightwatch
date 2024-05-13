@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { MovieList } from "@/types/movie-types";
 
 export async function GET(request: NextRequest) {
   try {
-    // Read request body
     const page = request.nextUrl.searchParams.get("page");
     const category = request.nextUrl.searchParams.get("category") ?? "";
     const res = {
@@ -50,9 +50,12 @@ export async function GET(request: NextRequest) {
         };
       }),
     );
-    return NextResponse.json({
+    const movieListResponse: MovieList = {
       res: res,
       movies: moviesWithEmbedAndTrailerUrls,
+    };
+    return NextResponse.json({
+      movieListResponse,
     });
   } catch (error) {
     console.error(error);

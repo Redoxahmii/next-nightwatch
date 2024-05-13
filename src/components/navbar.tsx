@@ -105,9 +105,9 @@ const Nav = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent as="div" justify="end">
-        <NavbarItem>
-          <ThemeSwitcher />
-        </NavbarItem>
+        {/* <NavbarItem> */}
+        {/*   <ThemeSwitcher /> */}
+        {/* </NavbarItem> */}
         <NavbarItem>
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
