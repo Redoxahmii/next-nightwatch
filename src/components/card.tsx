@@ -13,7 +13,10 @@ import {
 } from "@nextui-org/react";
 import YouTube from "react-youtube";
 import { Play, Star } from "lucide-react";
+import Link from "next/link";
+
 const Card = ({ Data }: any) => {
+  // const router = useRouter();
   const {
     title,
     navigateLink,
@@ -23,6 +26,7 @@ const Card = ({ Data }: any) => {
     trailerUrl,
   } = Data;
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   return (
     <>
       <CardNext
@@ -64,7 +68,7 @@ const Card = ({ Data }: any) => {
                 <ModalHeader className="flex flex-col gap-1"></ModalHeader>
                 <ModalBody as="div">
                   <div className="flex justify-center gap-10 items-center">
-                    <div className=" flex flex-col gap-2">
+                    <div className="flex flex-col gap-2">
                       <h1 className="font-bold text-2xl">{title}</h1>
                       <p className="text-white/70 text-sm">{overview}</p>
                       <div className="flex items-center gap-2">
@@ -72,14 +76,14 @@ const Card = ({ Data }: any) => {
                           size={20}
                           fill="currentColor"
                           className="text-yellow-400"
-                        ></Star>
+                        />
                         <p className="text-white/70 text-sm">{vote_average}</p>
                       </div>
                     </div>
                     <div className="lg:flex hidden rounded-xl">
                       <YouTube
                         videoId={trailerUrl}
-                        iframeClassName=" rounded-xl"
+                        iframeClassName="rounded-xl"
                       />
                     </div>
                   </div>
@@ -88,13 +92,15 @@ const Card = ({ Data }: any) => {
                   <Button color="danger" variant="light" onPress={onClose}>
                     Close
                   </Button>
-                  <Button
-                    color="primary"
-                    variant="shadow"
-                    startContent={<Play size={15}></Play>}
-                  >
-                    Watch
-                  </Button>
+                  <Link href={navigateLink}>
+                    <Button
+                      color="primary"
+                      variant="shadow"
+                      startContent={<Play size={15} />}
+                    >
+                      Watch
+                    </Button>
+                  </Link>
                 </ModalFooter>
               </>
             )}

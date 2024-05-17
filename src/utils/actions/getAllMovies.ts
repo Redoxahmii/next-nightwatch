@@ -1,10 +1,16 @@
-import { NextRequest, NextResponse } from "next/server";
-import { MovieList } from "@/types/movie-types";
+"use server";
 
-export async function GET(request: NextRequest) {
+import { Movie } from "@/types/movie-types";
+export interface MovieResponse {
+  res?: { page: string; category: string };
+  movies?: Movie[];
+  error?: string;
+}
+export async function getAllMovies(
+  page: any,
+  category: any,
+): Promise<MovieResponse> {
   try {
-    const page = request.nextUrl.searchParams.get("page");
-    const category = request.nextUrl.searchParams.get("category") ?? "";
     const res = {
       page: page,
       category: category,
@@ -12,7 +18,7 @@ export async function GET(request: NextRequest) {
 
     const tmdbApiKey = process.env.TMDB_API_KEY;
     if (!["popular", "top_rated", "upcoming"].includes(category)) {
-      return NextResponse.json({ error: "Invalid category" });
+      throw new Error();
     }
     const tmdbUrl = `https://api.themoviedb.org/3/movie/${category}?api_key=${tmdbApiKey}&page=${page}`;
     const tmdbResponse = await fetch(tmdbUrl);
@@ -51,12 +57,11 @@ export async function GET(request: NextRequest) {
       }),
     );
 
-    const MovieResponse: MovieList = {
+    const MovieResponse = {
       res: res,
       movies: moviesWithEmbedAndTrailerUrls,
     };
-    console.log(MovieResponse);
-    return NextResponse.json(MovieResponse);
+    return MovieResponse;
   } catch (error) {
     console.error(error);
     return { error: "Failed to fetch and process data." };

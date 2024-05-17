@@ -38,13 +38,15 @@ const Nav = () => {
         aria-label={isMenuOpen ? "closemenu" : "open menu"}
       />
       <NavbarBrand>
-        <Button
-          variant="light"
-          color="secondary"
-          className=" font-semibold text-secondary-600 text-large"
-        >
-          NightWatch
-        </Button>
+        <Link href="/">
+          <Button
+            variant="light"
+            color="secondary"
+            className=" font-semibold text-secondary-600 text-large"
+          >
+            NightWatch
+          </Button>
+        </Link>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
