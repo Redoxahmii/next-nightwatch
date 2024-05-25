@@ -2,13 +2,13 @@
 import { Image } from "@nextui-org/react";
 import { Rocket, Star } from "lucide-react";
 
+// eslint-disable-next-line @next/next/no-async-client-component
 export default async function MoviePage({ params }: any) {
   const { movieId } = params;
   const res = await fetch(
     `http://localhost:8000/api/movies/onemovie?movieId=${movieId}`,
   );
   const movieDetails = await res.json();
-  console.log("movieDetails client LOG:", movieDetails);
   // if (error) {
   //   return <MovieError />;
   // }

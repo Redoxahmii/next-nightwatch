@@ -1,5 +1,5 @@
 "use client";
-import { Input, Button } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { Search } from "lucide-react";
 
 export default function HomeSearch() {
@@ -11,6 +11,7 @@ export default function HomeSearch() {
         variant="flat"
         isInvalid={InputDisabled}
         isRequired
+        // errorMessage={searchInputError}
         size="md"
         isClearable
         className="w-96"

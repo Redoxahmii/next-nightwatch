@@ -16,7 +16,6 @@ import { Play, Star } from "lucide-react";
 import Link from "next/link";
 
 const Card = ({ Data }: any) => {
-  // const router = useRouter();
   const {
     title,
     navigateLink,
