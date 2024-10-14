@@ -55,7 +55,6 @@ export async function GET(request: NextRequest) {
       res: res,
       movies: moviesWithEmbedAndTrailerUrls,
     };
-    console.log(MovieResponse);
     return NextResponse.json(MovieResponse);
   } catch (error) {
     console.error(error);

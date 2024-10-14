@@ -1,10 +1,8 @@
-import React from "react";
-import HomeSearch from "@/components/home-search";
 import Card from "@/components/card";
+import HomeSearch from "@/components/home-search";
 import { MovieList, Movie } from "@/types/movie-types";
 
 export default async function Home() {
-  // const req: MovieResponse = await getAllMovies("1", "top_rated");
   const req: MovieList = await fetch(
     "http://localhost:8000/api/movies/allmovies?page=1&category=top_rated",
     {

@@ -4,7 +4,6 @@ import axios from "axios";
 export async function GET(request: NextRequest) {
   try {
     const page = request.nextUrl.searchParams.get("movieId");
-    console.log("page LOG:", page);
 
     const tmdbApiKey = process.env.TMDB_API_KEY;
     if (!page) {
