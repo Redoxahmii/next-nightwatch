@@ -16,7 +16,7 @@ export default async function Home() {
           <h1 className="lg:text-7xl text-3xl tracking-tighter text-secondary-700">
             Welcome to Night Watch
           </h1>
-          <div className="w-full lg:max-w-3xl max-w-md text-center pt-4 mb-2">
+          <div className="w-full lg:max-w-3xl max-w-xs text-center pt-4 mb-2">
             <p className="lg:text-2xl tracking-tight text-sm">
               A free Frontend Client for watching Movies. Search for your
               favourite movies and watch them for free!
@@ -25,11 +25,11 @@ export default async function Home() {
           <HomeSearch />
         </div>
       </div>
-      <div className=" flex flex-wrap gap-5 justify-center pb-10 items-center mx-20">
-        <h1 className="text-5xl font-semibold tracking-tighter mb-10">
+      <div className=" flex flex-wrap gap-5 justify-center pb-10 items-center lg:mx-20">
+        <h1 className="lg:text-5xl text-3xl font-semibold tracking-tighter mb-10">
           Movies
         </h1>
-        <div className=" flex justify-center items-center flex-wrap gap-5">
+        <div className="flex justify-center items-center flex-wrap gap-5">
           {req.movies?.map((movie: Movie) => {
             return <Card key={movie.id} Data={movie} />;
           })}

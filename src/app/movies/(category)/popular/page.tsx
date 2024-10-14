@@ -36,7 +36,14 @@ export default function PopularMovies() {
 
   return (
     <div className=" items-center pt-28 justify-center flex flex-col gap-10">
-      <h1 className="text-6xl tracking-tighter">Popular Movies</h1>
+      <div className=" flex flex-col items-center justify-center gap-4">
+        <h1 className="lg:text-5xl text-3xl tracking-tighter">
+          Popular Movies
+        </h1>
+        <p className="text-sm text-white/70 text-center">
+          Watch the most popular movies you can find on the internet.
+        </p>
+      </div>
       <Pagination
         total={500}
         showShadow

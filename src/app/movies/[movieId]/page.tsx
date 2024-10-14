@@ -9,18 +9,6 @@ export default async function MoviePage({ params }: any) {
     `http://localhost:8000/api/movies/onemovie?movieId=${movieId}`,
   );
   const movieDetails = await res.json();
-  // if (error) {
-  //   return <MovieError />;
-  // }
-  //
-  // if (loading && !movieDetails) {
-  //   return <Loader />;
-  // }
-  //
-  // if (!movieDetails) {
-  //   return <div>TV show not found.</div>;
-  // }
-
   const {
     title,
     overview,
@@ -32,7 +20,7 @@ export default async function MoviePage({ params }: any) {
   } = movieDetails;
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen lg:mx-10 justify-between items-center">
+    <div className="flex flex-col lg:flex-row h-screen lg:mx-10 mx-5 lg:justify-between justify-around items-center">
       <div className="flex flex-col lg:mx-4 lg:mt-8 mt-10 w-full lg:max-w-lg max-w-md">
         <Image
           width={130}
@@ -62,7 +50,7 @@ export default async function MoviePage({ params }: any) {
       <div className="lg:flex w-full max-w-3xl aspect-video">
         <iframe
           src={embedUrl}
-          className="block w-full rounded-3xl"
+          className="block w-full rounded-xl"
           allowFullScreen
         ></iframe>
       </div>

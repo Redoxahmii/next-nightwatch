@@ -1,3 +1,5 @@
+import { Movie } from "@/types/movie-types";
+import { Shows } from "@/types/shows-types";
 import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (req: NextRequest) => {
@@ -25,7 +27,7 @@ export const GET = async (req: NextRequest) => {
     const baseUrl = "https://image.tmdb.org/t/p/w500";
 
     // Function to fetch trailer URL for a movie
-    const fetchTrailerUrl = async (movieId: string) => {
+    const fetchTrailerUrl = async (movieId: number) => {
       const trailerResponse = await fetch(
         `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${tmdbApiKey}`,
       );
@@ -35,7 +37,7 @@ export const GET = async (req: NextRequest) => {
       return trailers.length > 0 ? trailers[0].key : "";
     };
 
-    const fetchTrailerUrlTV = async (showId: string) => {
+    const fetchTrailerUrlTV = async (showId: number) => {
       const trailerResponse = await fetch(
         `https://api.themoviedb.org/3/tv/${showId}/videos?api_key=${tmdbApiKey}`,
       );
@@ -46,7 +48,7 @@ export const GET = async (req: NextRequest) => {
     };
 
     const moviesWithEmbedUrls = await Promise.all(
-      movies.map(async (movie: any) => {
+      movies.map(async (movie: Movie) => {
         const navigateLink = `/movies/${movie.id}`;
         const posterPath = `${baseUrl}${movie.poster_path}`;
         const embedUrl = `https://vidsrc.to/embed/movie/${movie.id}`;
@@ -63,7 +65,7 @@ export const GET = async (req: NextRequest) => {
     );
 
     const tvShowsWithEmbedUrls = await Promise.all(
-      tvShows.map(async (show: any) => {
+      tvShows.map(async (show: Shows) => {
         const navigateLink = `/tvshows/${show.id}/1/1`;
         const posterPath = `${baseUrl}${show.poster_path}`;
         const embedUrl = `https://vidsrc.to/embed/tv/${show.id}`;

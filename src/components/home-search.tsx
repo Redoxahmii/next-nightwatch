@@ -14,7 +14,7 @@ export default function HomeSearch() {
         // errorMessage={searchInputError}
         size="md"
         isClearable
-        className="w-96"
+        className="w-full lg:w-96"
         placeholder="Search for media..."
         // onChange={(e) => setSearchTerm(e.target.value)}
         startContent={
@@ -26,7 +26,7 @@ export default function HomeSearch() {
       <Button
         // isDisabled={Buttonloading}
         // isLoading={Buttonloading}
-        className="px-10"
+        className="lg:px-10"
         color="secondary"
         variant="shadow"
         // onPress={handleSubmit}
